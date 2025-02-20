@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="{% static 'panel/css/login.css' %}" rel="stylesheet" media="all" type="text/css" />
+    <title>登录</title>
+</head>
+<body>
+    <form method="post" class="login-container">
+        <h2>欢迎登录</h2>
+        {% if form.errors %}
+            <p>用户名或密码错误</p>
+            {% endif %}
+        
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-group">
+                    {{ field.label_tag }}
+                    {{ field }}
+                </div>
+            {% endfor %}
+            <input type="submit" value="登录">
+        </form>
+        没有账号？ <a href="{% url 'panel:register' %}">现在注册！</a>
+</body>
+</html>

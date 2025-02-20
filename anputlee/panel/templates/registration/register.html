@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="{% static 'panel/css/login.css' %}" rel="stylesheet" media="all" type="text/css" />
+    <title>注册</title>
+</head>
+<body>
+    <form method="post" class="login-container">
+        <h2>欢迎注册</h2>
+        {% if form.errors %}
+            <p>用户名或密码不符合要求</p>
+            {% endif %}
+        
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-group">
+                    {{ field.label_tag }}
+                    {{ field }}
+                </div>
+            {% endfor %}
+            <input type="submit" value="注册">
+        </form>
+</body>
+</html>

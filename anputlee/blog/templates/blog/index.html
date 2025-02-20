@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{%static 'blog/css/index.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="content-section">
+{%for post in post_list%}
+    <div class="post">
+    <span class="post-title">
+        <a href="{%url 'blog:detail' slug=post.slug%}">{{post.title}}</a>
+    </span>
+    <p class="post-content">{{post.content|truncatechars:50}}</p>
+    <span class="post-date">{{post.timestamp|date:"Y/m/d H:m:s"}}</span>
+</div>
+{%if not forloop.last%}<hr class="post-seperator" />{%endif%}
+{%endfor%}
+</div>
+{%endblock%}

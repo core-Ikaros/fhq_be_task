@@ -1,0 +1,28 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'blog/css/archive.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+{% for post in post_list %}
+
+    {% with year=post.timestamp|date:"Y" month=post.timestamp|date:"F" %}
+    {% ifchanged month %}
+    <div class="timeline">
+    <h1 class="month">{{ month }}</h1>
+    {% ifchanged year %}
+    <div class="separator">/</div>
+    <h1 class="year">{{ year }}年</h1>
+    {% endifchanged %}
+    </div>
+    {% endifchanged %}
+    {% endwith %}
+    
+    <a href={% url 'blog:detail' slug=post.slug %}>{{ post.title }}</a>
+{% endfor %}
+</div>
+{% endblock %}
+

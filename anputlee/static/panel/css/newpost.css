@@ -1,0 +1,50 @@
+.form-group {
+    display: flex;
+    flex-direction: column;
+    border: 3px solid #555;
+    border-radius: 5px;
+    margin: 20px;
+    padding: 20px;
+}
+
+.form-group input {
+    width: 100%;
+    font-size: 30px;
+    padding: 10px;
+    border: none;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.form-group textarea {
+    width: 100%;
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+    resize: vertical;
+}
+
+input[type="submit"] {
+    color: #555;
+    border-color: black;
+    border-radius: 5px;
+    font-size: 20px;
+    margin: 20px;
+}
+
+.form-group input:focus,textarea:focus {
+    outline: none;
+}
+.head {
+    display: flex;
+    align-items: center;
+}
+
+.head span {
+    font-size: 18px;
+    color: red;
+}

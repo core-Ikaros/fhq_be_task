@@ -1,0 +1,24 @@
+{% extends 'panel/panel.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'panel/css/newpost.css' %}">
+{% endblock %}
+
+{% block panel %}
+<div class="head">
+    <h1>发布新文章</h1>
+    {% if form.errors %}
+    <span class="error">标题或内容不能为空！</span>
+    {% endif %}
+</div>
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+    {% for field in form %}
+            {{ field }}
+        {% endfor %}
+    </div>
+    <input type="submit" value="发布">
+</form>
+{% endblock %}

@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.menu {
+    background-color: #333;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    height: 50px;
+    align-items: center;
+}
+
+.menu div {
+    width: 150px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 18px;
+    transition: all 0.3s ease-in-out;
+}
+
+.menu div:hover {
+    background-color: #555;
+}
+
