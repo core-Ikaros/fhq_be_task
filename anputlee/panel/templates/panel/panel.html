@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'panel/css/panel.css' %}">
+    {% block head %}
+    {% endblock %}
+    <title>控制台</title>
+</head>
+<body>
+    <nav class="menu">
+            <div onclick="location.href='{% url 'panel:home' %}'">首页</div>
+            <div onclick="location.href='{% url 'panel:user' %}'">用户</div>
+            <div onclick="location.href='{% url 'panel:newpost' %}'">新建</div>
+            <div onclick="location.href='{% url 'panel:posts' %}'">文章管理</div>
+    </nav>
+    <div class="panel">
+        {% block panel %}
+        {% endblock %}
+    </div>
+</body>
+</html>

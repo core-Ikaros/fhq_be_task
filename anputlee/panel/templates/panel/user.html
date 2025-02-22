@@ -1,0 +1,6 @@
+{% extends 'panel/panel.html' %}
+
+{% block panel %}
+    <h1>账户管理</h1>
+    <button onclick="location.href='{% url 'panel:logout' %}'">登出</button>
+{% endblock %}

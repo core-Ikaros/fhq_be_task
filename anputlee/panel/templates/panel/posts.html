@@ -1,0 +1,22 @@
+{% extends 'panel/panel.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'blog/css/index.css' %}">
+{% endblock %}
+
+{% block panel %}
+	<h1>由您创建的文章于此展示。</h1>
+	<div class="content-section">
+        {%for post in post_list%}
+            <div class="post">
+            <span class="post-title">
+                <a href="{%url 'panel:posts_detail' slug=post.slug%}">{{post.title}}</a>
+            </span>
+            <p class="post-content">{{post.content|truncatechars:50}}</p>
+            <span class="post-date">{{post.timestamp|date:"Y/m/d H:m:s"}}</span>
+        </div>
+        {%if not forloop.last%}<hr class="post-seperator" />{%endif%}
+        {%endfor%}
+        </div>
+{% endblock %}
